@@ -12,7 +12,7 @@ reg [31:0] registers [63:0]
 
 always@(posedge clk)
 begin
-    if (~wrt)
+    if (~write)
     begin
         xrs = registers[rs];
         xrt = registers[rt];

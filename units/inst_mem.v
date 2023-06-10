@@ -10,7 +10,7 @@ input clk;
 input [31:0] addr;
 output reg[31:0] inst;
 
-reg [31:0] instructions [65535:0]
+reg [31:0] instructions [65535:0];
 
 always@(posedge clk)
 begin

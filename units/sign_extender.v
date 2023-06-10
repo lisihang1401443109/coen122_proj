@@ -5,7 +5,7 @@ module sign_extender (
 input [21:0] in;
 output reg [31:0] out;
 
-always@(negedge clk)
+always@(posedge clk)
 begin
     out[31:0] = in;
     if (in[21] == 0)

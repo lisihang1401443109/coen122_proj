@@ -20,12 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module ALU(A, B, add, inc, neg, sub, out, Z, N);
+module ALU(A, B, aluop, out, Z, N);
 
     input [31:0] A, B;
-    input add, inc, neg, sub;
+    // input add, inc, neg, sub;
+    input [3:0] aluop;
     output [31:0] out;
     output Z, N;
+
+    wire add = aluop[3];
+    wire inc = aluop[2];
+    wire neg = aluop[1];
+    wire sub = aluop[0];
 
     wire logic_0;
     wire [31:0] bout, aout, Acomp;

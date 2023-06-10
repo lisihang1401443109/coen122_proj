@@ -1,0 +1,13 @@
+opcode regWrite memToReg PCtoReg branchN Jump jumpMem memRead memWrite imme ALUop
+0000 0 0 0 0 0 0 0 0 0 0 PASS
+1111 0 0 1 0 0 0 0 0 0 0 ADD
+1110 1 1 0 0 0 0 0 1 0 0 PASS
+0011 0 0 0 0 0 0 0 0 1 0 PASS
+0100 1 0 0 0 0 0 0 0 0 0 ADD
+0101  1 0 0 0 0 0 0 0 0 1 ADD
+0110 1 0 0 0 0 0 0 0 0 0 NEG
+0111 1 0 0 0 0 0 0 0 0 0 SUB
+1000 0 0 0 0 0 1 0 0 0 1 PASS
+1001 0 0 0 0 1 1 0 0 0 0 PASS
+1010 0 0 0 0 0 1 1 1 1 0 PASS
+1011 0 0 0 1 0 1 0 0 0 0 PASS
