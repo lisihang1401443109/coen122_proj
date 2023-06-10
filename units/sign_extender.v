@@ -2,6 +2,7 @@ module sign_extender (
     clk, in, out
 );
 
+input clk;
 input [21:0] in;
 output reg [31:0] out;
 

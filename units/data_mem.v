@@ -6,7 +6,8 @@ module data_mem (
 
 reg [31:0] data [65535:0];
 
-always @(posedge clk) begin
+always @(posedge clk)
+begin
     if (read)
     begin
         data_out = data[addr[15:0]];
@@ -16,3 +17,4 @@ always @(posedge clk) begin
         data[addr[15:0]] = data_in;
     end
 end
+endmodule

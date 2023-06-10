@@ -3,43 +3,45 @@ module datapath ();
 reg clk;
 
 // the IF stage
-wire [31:0] pc_in, pc_out;
+wire [31:0] pc_in, if_pc_out;
 
-wire [31:0] inst_out;
+wire [31:0] if_inst_out;
 
-wire id_regwrt, id_imme, id_PCtoReg, id_MemtoReg, id_BranchN, id_BranchZ, id_Jump, id_JumpMem, id_MemRead, id_MemWrt
+wire id_regwrt, id_imme, id_PCtoReg, id_MemtoReg, id_BranchN, id_BranchZ, id_Jump, id_JumpMem, id_MemRead, id_MemWrt;
 wire [3:0] id_ALUop;
 
-PC my_pc(pc_in, pc_out);
+PC my_pc(pc_in, if_pc_out);
 
-inst_mem my_inst_mem(clk, pc_out, inst_out);
+inst_mem my_inst_mem(clk, if_pc_out, if_inst_out);
 
-IFID my_ifid(clk, inst_out, inst_ifid_out, pc_out, pc_ifid_out);
+wire [31:0] id_pc, id_inst;
+
+IFID my_ifid(clk, if_inst_out, if_pc_out, id_inst, id_pc);
 
 // the ID stage
 
 wire [3:0] opcode;
-assign opcode = inst_ifid_out[31:28];
+assign opcode = id_inst[31:28];
 
-control my_control(clk, inst_ifid_out, id_regwrt, id_imme, id_PCtoReg, id_MemtoReg, id_BranchN, id_BranchZ, id_Jump, id_JumpMem, id_ALUop, id_MemRead, id_MemWrt);
+control my_control(clk, id_inst, id_regwrt, id_imme, id_PCtoReg, id_MemtoReg, id_BranchN, id_BranchZ, id_Jump, id_JumpMem, id_ALUop, id_MemRead, id_MemWrt);
 
 
 wire [5:0] rs, rt, id_rd;
-assign rs = inst_ifid_out[21:16];
-assign rt = inst_ifid_out[15:10];
-assign id_rd = inst_ifid_out[27:22];
+assign rs = id_inst[21:16];
+assign rt = id_inst[15:10];
+assign id_rd = id_inst[27:22];
 wire [31:0] rf_data_in;
 
 wire [31:0] id_xrs, id_xrt, id_Y, id_pc_y;
 
 register_file my_rf(clk, rs, rt, wb_rd, rf_data_in, id_regwrt, id_xrs, id_xrt);
 
-sign_extender my_sign_ext(clk, inst_ifid_out[21:0], id_Y);
+sign_extender my_sign_ext(clk, id_inst[21:0], id_Y);
 
 adder_32bit adder_id(.A(pc_ifid_out), .B(id_Y), .S(id_pc_y));
 
 wire ex_regwrt, ex_MemtoReg, ex_PctoReg, ex_BranchN, ex_BranchZ, ex_Jump, ex_JumpMem, ex_MemRead, ex_MemWrt, ex_imme, ex_rd;
-wire [3:0] ex_ALUop,
+wire [3:0] ex_ALUop;
 wire [31:0] ex_xrs, ex_xrt, ex_Y, ex_pc_y;
 
 IDEX my_idex(clk, 
@@ -70,7 +72,7 @@ data_mem my_data_mem(clk, ex_MemRead, ex_MemWrt, ex_xrs, ex_xrt, ex_data_mem_out
 
 mux_2to1 alu_in2_mux(.inA(xrt), .inB(Y), .sel(ex_imme), .out(ex_mux_out));
 
-ALU ex_ALU(clk, ex_xrs, ex_mux_out, ex_ALUop, ex_ALU_out, ex_Z, ex_N);
+ALU ex_ALU(ex_xrs, ex_mux_out, ex_ALUop, ex_ALU_out, ex_Z, ex_N);
 // make change to ALU module to comromise
 
 wire wb_N, wb_Z, wb_MemtoReg, wb_regwrt, wb_BranchZ, wb_BranchN, wb_Jump, wb_JumpMem, wb_PctoReg;
@@ -92,10 +94,10 @@ EXWB my_exwb(clk,
 
 // the WB stage
 
-mux_3to1 wb_mux(.inA(wb_data_mem_out), inB(wb_ALU_out), inC(wb_pc_y), .sel({wb_PctoReg, wb_MemtoReg}), .out(rf_data_in));
+mux_3to1 wb_mux(.inA(wb_data_mem_out), .inB(wb_ALU_out), .inC(wb_pc_y), .sel({wb_PctoReg, wb_MemtoReg}), .out(rf_data_in));
 
 // back to PC and regFile
-mux_3to1 mux_pc(.inA(pc_out+32'b04), .inB(id_xrs), .inC(ex_data_mem_out), .sel({jumpMem, or_out}), .out(pc_in));
+mux_3to1 mux_pc(.inA(pc_out+32'b01), .inB(id_xrs), .inC(ex_data_mem_out), .sel({jumpMem, or_out}), .out(pc_in));
 
 initial 
 begin

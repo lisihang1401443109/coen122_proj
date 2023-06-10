@@ -5,7 +5,7 @@ module EXWB (
     NOut, ZOut, memToRegOut, RegWrtOut, BranchZOut, BranchNOut, JumpOut, JumpMemOut, memOutOut, ALUOutOut, rdOut, pc_y_out, pcToRegOut
 );
 input clk;
-input Nin, Zin, memToRegIn, RegWrtIn, BranchZIn, BranchNIn, JumpIn, JumpMemIn, pcToRegIn;
+input NIn, ZIn, memToRegIn, RegWrtIn, BranchZIn, BranchNIn, JumpIn, JumpMemIn, pcToRegIn;
 
 input [31:0] memOutIn, ALUOutIn, pc_y_in;
 
@@ -13,8 +13,8 @@ input [5:0] rdIn;
 
 
 output reg NOut, ZOut, memToRegOut, RegWrtOut, BranchZOut, BranchNOut, JumpOut, JumpMemOut, pcToRegOut;
-output reg [31:0] memOutOut, ALUOutOut, pc_y_out,
-output reg [5:0] rdOut
+output reg [31:0] memOutOut, ALUOutOut, pc_y_out;
+output reg [5:0] rdOut;
 
 // match the inputs with output reg
 
@@ -26,7 +26,7 @@ begin
     memToRegOut= memToRegIn;
     RegWrtOut  = RegWrtIn;
     BranchZOut = BranchZIn;
-    BranchNOut = BranchNIn;‰
+    BranchNOut = BranchNIn;
     JumpOut    = JumpIn;
     JumpMemOut = JumpMemIn;
     memOutOut  = memOutIn;

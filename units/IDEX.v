@@ -1,6 +1,6 @@
 module IDEX (
     clk, RegWrtIn, RegWrtOut, 
-    memToRegIn, MemtoRegOut, 
+    memToRegIn, memToRegOut, 
     PCtoRegIn, PCtoRegOut, 
     BranchNIn, BranchNOut, 
     BranchZIn, BranchZOut, 
@@ -20,14 +20,14 @@ module IDEX (
 input clk, RegWrtIn, memToRegIn, PCtoRegIn, BranchNIn, BranchZIn,
     JumpIn, JumpMemIn, memReadIn, memWriteIn, immeIn;
 input [1:0] ALUopIn;
-
+input [5:0] rdIn;
 input [31:0] XrsIn, XrtIn, Yin, PC_YIn;
 
 output reg RegWrtOut, memToRegOut, PCtoRegOut, BranchNOut, BranchZOut,
     JumpOut, JumpMemOut, memReadOut, memWriteOut, immeOut;
-output [1:0] ALUopOut;
-output [31:0] XrsIn, XrtIn, Yin, PC_YIn
-
+output reg [1:0] ALUopOut;
+output reg [5:0] rdOut;
+output reg [31:0] XrsOut, XrtOut, Yout, PC_YOut;
 
 always @(negedge clk)
 begin

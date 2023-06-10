@@ -4,11 +4,11 @@ module register_file (
 
 input clk, write;
 input [5:0] rs, rt, rd;
-input [31:0] data_in
+input [31:0] data_in;
 
 output reg [31:0] xrs, xrt;
 
-reg [31:0] registers [63:0]
+reg [31:0] registers [63:0];
 
 always@(posedge clk)
 begin
@@ -17,7 +17,7 @@ begin
         xrs = registers[rs];
         xrt = registers[rt];
     end
-    if (wrt)
+    if (write)
     begin
         registers[rd] = data_in;
     end

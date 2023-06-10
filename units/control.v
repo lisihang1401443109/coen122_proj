@@ -1,10 +1,11 @@
 module control (
-    clk, opcode, regWrite, imme, PCtoReg, MemtoReg, branchN, branchZ, Jump, jumpMem, ALUop, memRead, memWrite
+    clk, opcode, regWrite, imme, PCtoReg, memToReg, branchN, branchZ, Jump, jumpMem, ALUop, memRead, memWrite
 );
 
+input clk;
 input [3:0] opcode;
-output RegWrt, imme, PCtoReg, MemtoReg, BranchNeg, BranchZero, Jump, JumpMem, ALUop, MemRead, MemWrt
-output [1:0] ALUop
+output reg regWrite, imme, PCtoReg, memToReg, branchN, branchZ, Jump, jumpMem, memRead, memWrite;
+output reg [1:0] ALUop;
 
 // bunch of if's
   always @(posedge clk)
