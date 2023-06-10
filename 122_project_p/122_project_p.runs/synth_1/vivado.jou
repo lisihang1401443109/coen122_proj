@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Fri Jun  9 18:15:01 2023
+# Process ID: 8380
+# Current directory: C:/Users/sli13/coen122_proj/coen122_proj.runs/synth_1
+# Command line: vivado.exe -log tb_datapath.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source tb_datapath.tcl
+# Log file: C:/Users/sli13/coen122_proj/coen122_proj.runs/synth_1/tb_datapath.vds
+# Journal file: C:/Users/sli13/coen122_proj/coen122_proj.runs/synth_1\vivado.jou
+# Running On: win10711, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 8, Host memory: 68431 MB
+#-----------------------------------------------------------
+source tb_datapath.tcl -notrace

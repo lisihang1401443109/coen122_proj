@@ -1,0 +1,121 @@
+
+*** Running vivado
+    with args -log tb_datapath.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source tb_datapath.tcl
+
+
+
+****** Vivado v2022.1 (64-bit)
+  **** SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+  **** IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source tb_datapath.tcl -notrace
+Command: synth_design -top tb_datapath -part xc7vx485tffg1157-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-1540] The version limit for your license is '2023.02' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for new releases.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 13432
+WARNING: [Synth 8-8895] 'wb_rd' is already implicitly declared on line 37 [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:81]
+WARNING: [Synth 8-9694] invalid size of integer constant literal [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/sign_extender.v:14]
+WARNING: [Synth 8-9694] invalid size of integer constant literal [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/sign_extender.v:18]
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1406.227 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'tb_datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:1]
+WARNING: [Synth 8-6896] loop limit (65536) exceeded inside initial block, initial block items will be ignored [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:42]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:1]
+WARNING: [Synth 8-6896] loop limit (65536) exceeded inside initial block, initial block items will be ignored [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:105]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:13]
+INFO: [Synth 8-6157] synthesizing module 'PC' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/PC.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'PC' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/PC.v:1]
+WARNING: [Synth 8-689] width (32) of port connection 'clk' does not match port width (1) of module 'PC' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:13]
+WARNING: [Synth 8-7071] port 'PC_out' of module 'PC' is unconnected for instance 'my_pc' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:13]
+WARNING: [Synth 8-7023] instance 'my_pc' of module 'PC' has 3 connections declared, but only 2 given [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:13]
+INFO: [Synth 8-6157] synthesizing module 'inst_mem' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/inst_mem.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'inst_mem' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/inst_mem.v:1]
+INFO: [Synth 8-6157] synthesizing module 'IFID' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/IFID.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'IFID' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/IFID.v:1]
+WARNING: [Synth 8-689] width (32) of port connection 'pcIn' does not match port width (8) of module 'IFID' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:19]
+WARNING: [Synth 8-689] width (32) of port connection 'pcOut' does not match port width (8) of module 'IFID' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:19]
+INFO: [Synth 8-6157] synthesizing module 'control' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/control.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'control' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/control.v:1]
+WARNING: [Synth 8-689] width (32) of port connection 'opcode' does not match port width (4) of module 'control' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:26]
+WARNING: [Synth 8-689] width (4) of port connection 'ALUop' does not match port width (2) of module 'control' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:26]
+INFO: [Synth 8-6157] synthesizing module 'register_file' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/register_file.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'register_file' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/register_file.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sign_extender' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/sign_extender.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'sign_extender' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/sign_extender.v:1]
+INFO: [Synth 8-6157] synthesizing module 'adder_32bit' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:103]
+INFO: [Synth 8-6157] synthesizing module 'adder_1bit' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:91]
+INFO: [Synth 8-6155] done synthesizing module 'adder_1bit' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:91]
+INFO: [Synth 8-6155] done synthesizing module 'adder_32bit' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:103]
+WARNING: [Synth 8-7071] port 'c' of module 'adder_32bit' is unconnected for instance 'adder_id' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:41]
+WARNING: [Synth 8-7071] port 'cout' of module 'adder_32bit' is unconnected for instance 'adder_id' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:41]
+WARNING: [Synth 8-7023] instance 'adder_id' of module 'adder_32bit' has 5 connections declared, but only 3 given [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:41]
+INFO: [Synth 8-6157] synthesizing module 'IDEX' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/IDEX.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'IDEX' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/IDEX.v:1]
+WARNING: [Synth 8-689] width (4) of port connection 'ALUopIn' does not match port width (2) of module 'IDEX' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:57]
+WARNING: [Synth 8-689] width (4) of port connection 'ALUopOut' does not match port width (2) of module 'IDEX' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:57]
+WARNING: [Synth 8-689] width (1) of port connection 'rdOut' does not match port width (6) of module 'IDEX' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:63]
+INFO: [Synth 8-6157] synthesizing module 'data_mem' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/data_mem.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'data_mem' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/data_mem.v:1]
+INFO: [Synth 8-6157] synthesizing module 'mux_2to1' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'mux_2to1' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:57]
+INFO: [Synth 8-6157] synthesizing module 'ALU' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:23]
+INFO: [Synth 8-6157] synthesizing module 'negate' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:82]
+INFO: [Synth 8-6155] done synthesizing module 'negate' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:82]
+INFO: [Synth 8-6157] synthesizing module 'mux_3to1' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:66]
+INFO: [Synth 8-6155] done synthesizing module 'mux_3to1' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:66]
+WARNING: [Synth 8-7071] port 'cout' of module 'adder_32bit' is unconnected for instance 'addr1' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:49]
+WARNING: [Synth 8-7023] instance 'addr1' of module 'adder_32bit' has 5 connections declared, but only 4 given [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/ALU.v:23]
+INFO: [Synth 8-6157] synthesizing module 'And' [C:/Users/sli13/coen122_proj/coen122_proj.srcs/sources_1/new/And.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'And' (0#1) [C:/Users/sli13/coen122_proj/coen122_proj.srcs/sources_1/new/And.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Or' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/Or.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Or' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/Or.v:1]
+INFO: [Synth 8-6157] synthesizing module 'EXWB' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/EXWB.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'EXWB' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/EXWB.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'datapath' (0#1) [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath.v:1]
+ERROR: [Synth 8-448] named port connection 'clk' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:7]
+ERROR: [Synth 8-448] named port connection 'pc_out' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:8]
+ERROR: [Synth 8-448] named port connection 'id_rs1' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:9]
+ERROR: [Synth 8-448] named port connection 'id_rs2' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:10]
+ERROR: [Synth 8-448] named port connection 'id_imm' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:11]
+ERROR: [Synth 8-448] named port connection 'ex_ALU_out' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:12]
+ERROR: [Synth 8-448] named port connection 'ex_rd' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:13]
+ERROR: [Synth 8-448] named port connection 'ex_PctoReg' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:14]
+ERROR: [Synth 8-448] named port connection 'ex_MemtoReg' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:15]
+ERROR: [Synth 8-448] named port connection 'ex_regwrt' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:16]
+ERROR: [Synth 8-448] named port connection 'ex_BranchZ' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:17]
+ERROR: [Synth 8-448] named port connection 'ex_BranchN' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:18]
+ERROR: [Synth 8-448] named port connection 'ex_Jump' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:19]
+ERROR: [Synth 8-448] named port connection 'ex_JumpMem' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:20]
+ERROR: [Synth 8-448] named port connection 'ex_data_mem_out' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:21]
+ERROR: [Synth 8-448] named port connection 'ex_pc_y' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:22]
+ERROR: [Synth 8-448] named port connection 'ex_N' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:23]
+ERROR: [Synth 8-448] named port connection 'ex_Z' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:24]
+ERROR: [Synth 8-448] named port connection 'wb_data_mem_out' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:25]
+ERROR: [Synth 8-448] named port connection 'wb_ALU_out' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:26]
+ERROR: [Synth 8-448] named port connection 'wb_rd' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:27]
+ERROR: [Synth 8-448] named port connection 'wb_N' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:28]
+ERROR: [Synth 8-448] named port connection 'wb_Z' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:29]
+ERROR: [Synth 8-448] named port connection 'wb_MemtoReg' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:30]
+ERROR: [Synth 8-448] named port connection 'wb_regwrt' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:31]
+ERROR: [Synth 8-448] named port connection 'wb_BranchZ' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:32]
+ERROR: [Synth 8-448] named port connection 'wb_BranchN' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:33]
+ERROR: [Synth 8-448] named port connection 'wb_Jump' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:34]
+ERROR: [Synth 8-448] named port connection 'wb_JumpMem' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:35]
+ERROR: [Synth 8-448] named port connection 'wb_PctoReg' does not exist for instance 'my_datapath' of module 'datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:36]
+ERROR: [Synth 8-6156] failed synthesizing module 'tb_datapath' [//samba2.engr.scu.edu/sli13/ECC/Documents/GitHub/coen122_proj/units/datapath_tb.v:1]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1406.227 ; gain = 0.000
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+43 Infos, 21 Warnings, 0 Critical Warnings and 32 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Fri Jun  9 18:15:19 2023...
